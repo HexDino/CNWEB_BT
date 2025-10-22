@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cửa hàng Sách ABC</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -27,31 +28,72 @@
 
         <section class="products">
             <h2>Sản phẩm nổi bật</h2>
-            <div class="product-list">
-                <article>
+            
+            <!-- Tìm kiếm sản phẩm -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                <button id="searchBtn">Tìm</button>
+                <button id="addProductBtn" class="add-product-btn">Thêm sản phẩm</button>
+            </div>
+
+            <div class="product-list" id="productList">
+                <article class="product-item">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ErOxeEjtfP8LPooprGj3YwPaOgPaiAmFyQ&s" alt="Đắc Nhân Tâm">
-                    <h3>Đắc Nhân Tâm</h3>
-                    <p>Cuốn sách kinh điển về nghệ thuật giao tiếp và ứng xử, giúp bạn hiểu rõ bản thân 
+                    <h3 class="product-name">Đắc Nhân Tâm</h3>
+                    <p class="product-description">Cuốn sách kinh điển về nghệ thuật giao tiếp và ứng xử, giúp bạn hiểu rõ bản thân 
                        và cải thiện mối quan hệ với mọi người xung quanh.</p>
                     <p class="price">89.000đ</p>
                 </article>
 
-                <article>
+                <article class="product-item">
                     <img src="https://nhasachmienphi.com/images/thumbnail/nhasachmienphi-nha-gia-kim.jpg" alt="Nhà Giả Kim">
-                    <h3>Nhà Giả Kim</h3>
-                    <p>Tác phẩm nổi tiếng của Paulo Coelho kể về hành trình tìm kiếm ước mơ và ý nghĩa 
+                    <h3 class="product-name">Nhà Giả Kim</h3>
+                    <p class="product-description">Tác phẩm nổi tiếng của Paulo Coelho kể về hành trình tìm kiếm ước mơ và ý nghĩa 
                        cuộc sống qua câu chuyện của cậu bé chăn cừu Santiago.</p>
                     <p class="price">75.000đ</p>
                 </article>
 
-                <article>
+                <article class="product-item">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtSH2BYZfQJnwHmkZxMtMXRGVAqsTGyomDAw&s" alt="Sapiens: Lược Sử Loài Người">
-                    <h3>Sapiens: Lược Sử Loài Người</h3>
-                    <p>Cuốn sách đưa bạn đi qua hành trình tiến hóa của loài người từ thời kỳ đồ đá 
+                    <h3 class="product-name">Sapiens: Lược Sử Loài Người</h3>
+                    <p class="product-description">Cuốn sách đưa bạn đi qua hành trình tiến hóa của loài người từ thời kỳ đồ đá 
                        đến thời đại công nghệ, với những quan điểm độc đáo và sâu sắc.</p>
                     <p class="price">120.000đ</p>
                 </article>
             </div>
+        </section>
+
+        <!-- Form thêm sản phẩm (ẩn mặc định) -->
+        <section id="addProductForm" class="add-product-form hidden">
+            <h2>Thêm sản phẩm mới</h2>
+            <form id="productForm">
+                <div class="form-group">
+                    <label for="productName">Tên sản phẩm *</label>
+                    <input type="text" id="productName" name="productName" placeholder="Nhập tên sản phẩm">
+                </div>
+
+                <div class="form-group">
+                    <label for="productImage">URL hình ảnh *</label>
+                    <input type="url" id="productImage" name="productImage" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="productDescription">Mô tả *</label>
+                    <textarea id="productDescription" name="productDescription" placeholder="Nhập mô tả sản phẩm (tối thiểu 10 ký tự)..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="productPrice">Giá (VNĐ) *</label>
+                    <input type="number" id="productPrice" name="productPrice" placeholder="Ví dụ: 89000" min="0" step="1000">
+                </div>
+
+                <p id="errorMsg" class="error-message"></p>
+
+                <div class="form-buttons">
+                    <button type="submit">Thêm sản phẩm</button>
+                    <button type="button" id="cancelBtn" class="cancel-btn">Hủy</button>
+                </div>
+            </form>
         </section>
 
         <section class="contact-form">
@@ -83,6 +125,8 @@
         <p>Điện thoại: 0123.456.789 | Email: info@sachabc.com</p>
         <p>&copy; 2025 Cửa hàng Sách ABC. Bảo lưu mọi quyền.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
