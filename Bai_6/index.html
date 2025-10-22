@@ -29,37 +29,29 @@
         <section class="products">
             <h2>Sản phẩm nổi bật</h2>
             
-            <!-- Tìm kiếm sản phẩm -->
+            <!-- Tìm kiếm và Lọc sản phẩm -->
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
                 <button id="searchBtn">Tìm</button>
+                <select id="priceFilter">
+                    <option value="all">Tất cả giá</option>
+                    <option value="0-50000">Dưới 50.000đ</option>
+                    <option value="50000-100000">50.000đ - 100.000đ</option>
+                    <option value="100000-150000">100.000đ - 150.000đ</option>
+                    <option value="150000-999999999">Trên 150.000đ</option>
+                </select>
+                <select id="sortBy">
+                    <option value="">Sắp xếp</option>
+                    <option value="name-asc">Tên A → Z</option>
+                    <option value="name-desc">Tên Z → A</option>
+                    <option value="price-asc">Giá tăng dần</option>
+                    <option value="price-desc">Giá giảm dần</option>
+                </select>
                 <button id="addProductBtn" class="add-product-btn">Thêm sản phẩm</button>
             </div>
 
             <div class="product-list" id="productList">
-                <article class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ErOxeEjtfP8LPooprGj3YwPaOgPaiAmFyQ&s" alt="Đắc Nhân Tâm">
-                    <h3 class="product-name">Đắc Nhân Tâm</h3>
-                    <p class="product-description">Cuốn sách kinh điển về nghệ thuật giao tiếp và ứng xử, giúp bạn hiểu rõ bản thân 
-                       và cải thiện mối quan hệ với mọi người xung quanh.</p>
-                    <p class="price">89.000đ</p>
-                </article>
-
-                <article class="product-item">
-                    <img src="https://nhasachmienphi.com/images/thumbnail/nhasachmienphi-nha-gia-kim.jpg" alt="Nhà Giả Kim">
-                    <h3 class="product-name">Nhà Giả Kim</h3>
-                    <p class="product-description">Tác phẩm nổi tiếng của Paulo Coelho kể về hành trình tìm kiếm ước mơ và ý nghĩa 
-                       cuộc sống qua câu chuyện của cậu bé chăn cừu Santiago.</p>
-                    <p class="price">75.000đ</p>
-                </article>
-
-                <article class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtSH2BYZfQJnwHmkZxMtMXRGVAqsTGyomDAw&s" alt="Sapiens: Lược Sử Loài Người">
-                    <h3 class="product-name">Sapiens: Lược Sử Loài Người</h3>
-                    <p class="product-description">Cuốn sách đưa bạn đi qua hành trình tiến hóa của loài người từ thời kỳ đồ đá 
-                       đến thời đại công nghệ, với những quan điểm độc đáo và sâu sắc.</p>
-                    <p class="price">120.000đ</p>
-                </article>
+                <!-- Sản phẩm sẽ được tải động từ LocalStorage -->
             </div>
         </section>
 
@@ -118,6 +110,21 @@
             </form>
         </section>
     </main>
+
+    <!-- Modal chi tiết sản phẩm -->
+    <div id="productModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="">
+                <div class="modal-info">
+                    <h2 id="modalName"></h2>
+                    <p id="modalDescription"></p>
+                    <p class="modal-price" id="modalPrice"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p><strong>Cửa hàng Sách ABC</strong></p>
